@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/javascripts/stateproject.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".datepicker").datepicker();
+      });
+      $(document).ready(function () {
+        $("select").formSelect();
+      });
+    </script>
+  </head>
+
+  <body>
+    <form action="/employee/edit_employee_record" method="post">
+      <input type="hidden" value="<%=result.employeesid%>" name="employeeid" />
+      <div class="maincontainer">
+        <div class="box">
+          <div class="row">
+            <div
+              class="heading"
+              style="display: flex; justify-content: space-between"
+            >
+              Employee Register
+              <a href="/employee/display_all_employee"
+                ><i class="material-icons prefix">contacts</i></a
+              >
+            </div>
+          </div>
+          <%var name=result.employeesname.split(" ")%>
+          <div class="row">
+            <div class="input-field col s4">
+              <i class="material-icons prefix">account_circle</i>
+              <input
+                value="<%=name[0]%>"
+                name="firstname"
+                id="firstname"
+                type="text"
+                class="validate"
+              />
+              <label for="firstname">First Name</label>
+            </div>
+            <div class="input-field col s4">
+              <i class="material-icons prefix">account_circle</i>
+              <input
+                value="<%=name[1]%>"
+                name="lastname"
+                id="lastname"
+                type="text"
+                class="validate"
+              />
+              <label for="lastname">Last Name</label>
+            </div>
+            <div class="input-field col s4">
+              <i class="material-icons prefix">event</i>
+              <input
+                value="<%=result.dob%>"
+                name="dob"
+                id="dob"
+                type="text"
+                class="datepicker"
+              />
+              <label for="dob">Birth Date</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div
+              class="col s4 radiobtn"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <label>
+                <input name="gender" type="radio" value="male"
+                <%=result.gender=="male"?"checked":""%> />
+                <span>Male</span>
+              </label>
+              <label>
+                <input name="gender" type="radio" value="female"
+                <%=result.gender=="female"?"checked":""%>/>
+                <span>Female</span>
+              </label>
+            </div>
+            <div class="input-field col s4">
+              <i class="material-icons prefix">call</i>
+              <input
+                value="<%=result.contactnumber%>"
+                name="contactnumber"
+                id="contactnumber"
+                type="text"
+                class="validate"
+              />
+              <label for="contactnumber">Contact Number</label>
+            </div>
+            <div class="input-field col s4">
+              <i class="material-icons prefix">email</i>
+              <input
+                value="<%=result.emailaddress%>"
+                name="emailaddress"
+                id="emailaddress"
+                type="text"
+                class="validate"
+              />
+              <label for="emailaddress">email</label>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">home</i>
+                <input
+                  value="<%=result.address%>"
+                  name="address"
+                  id="address"
+                  type="text"
+                  class="validate"
+                />
+                <label for="address">Address</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <select name="state" id="state">
+                  <option value="" disabled selected>Choose your state</option>
+                  <option selected value="<%=result.state%>">
+                    <%=result.sname%>
+                  </option>
+                </select>
+                <label>State</label>
+              </div>
+              <div class="input-field col s6">
+                <select name="city" id="city">
+                  <option value="" disabled selected>Choose your city</option>
+                  <option selected value="<%=result.city%>">
+                    <%=result.cname%>
+                  </option>
+                </select>
+                <label>City</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s6 btnstyle">
+                <button
+                  class="btn waves-effect waves-light"
+                  type="submit"
+                  name="action"
+                  value="Edit"
+                >
+                  Edit
+                  <i class="material-icons right">edit</i>
+                </button>
+              </div>
+              <div class="col s6 btnstyle">
+                <button
+                  class="btn waves-effect waves-light"
+                  type="submit"
+                  name="action"
+                  value="Delete"
+                >
+                  Delete
+                  <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--JavaScript at end of body for optimized loading-->
+      <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <nav style="background-color: wheat">
+      <div>
+        <img
+          src="/images/Employee.png"
+          alt=""
+          width="50px"
+          style="margin: 7px; margin-top: 10px"
+        />
+        <!-- <a href="#" class="brand-logo" style="color: #34495e; font-weight: bold"
+          >Employee Management</a
+        > -->
+        <span style="color: #34495e; font-weight: bold" class="brand-logo"
+          >Employee Management</span
+        >
+        <span
+          style="
+            color: #34495e;
+            font-weight: bold;
+            margin-left: 25%;
+            font-size: 20px;
+          "
+          class="brand-logo"
+          >[<%=result.adminame%>]</span
+        >
+        <span class="brand-logo" style="margin-left: 30%"
+          ><img
+            src="/images/<%=result.picture%>"
+            width="60px"
+            style="border-radius: 20px"
+        /></span>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a target="mw" href="/employee/employeeinterface"
+              ><span
+                style="
+                  color: #34495e;
+                  margin-left: 20px;
+                  margin-right: 20px;
+                  font-size: 20px;
+                  font-weight: bold;
+                "
+                >Add Employees</span
+              ></a
+            >
+          </li>
+          <li>
+            <a target="mw" href="/employee/display_all_employee"
+              ><span
+                style="
+                  color: #34495e;
+                  margin-left: 20px;
+                  margin-right: 20px;
+                  font-size: 20px;
+                  font-weight: bold;
+                "
+                >Display Employees</span
+              ></a
+            >
+          </li>
+          <li>
+            <a href="/admin/logout">
+              <abbr title="logout"
+                ><i
+                  class="material-icons prefix"
+                  style="color: #34495e; margin-right: 20px"
+                  >lock_outline
+                </i></abbr
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="maincontainer">
+      <iframe name="mw" frameborder="0" height="700" width="100%"></iframe>
+    </div>
+    <!--JavaScript at end of body for optimized loading-->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
